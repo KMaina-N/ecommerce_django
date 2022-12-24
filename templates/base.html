@@ -1,155 +1,397 @@
-{% load static %}
-<!DOCTYPE >
+<!DOCTYPE html>
 <html>
   <head>
-        <!-- Font Awesome -->
-        <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        rel="stylesheet"
-      />
-      <!-- Google Fonts -->
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        rel="stylesheet"
-      />
-      <!-- MDB -->
-      <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
-        rel="stylesheet"
-      />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Buy african and asian products" />
+    <meta name="keywords" content="African, Asian, Products, Buy, Online" />
+    <meta name="author" content="African and Asian Products" />
+    <title>African and Asian Food Store Safari</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+      @media all and (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu {
+          display: none;
+        }
+        .navbar .nav-item:hover .nav-link {
+        }
+        .navbar .nav-item:hover .dropdown-menu {
+          display: block;
+        }
+        .navbar .nav-item .dropdown-menu {
+          margin-top: 0;
+        }
+      }
+      body {
+        font-family: "Quicksand", sans-serif;
+        background-color: rgb(255, 255, 255);
+        /* background-image: url(firefox.png),
+          url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png),
+          linear-gradient(
+            225deg,
+            rgba(242, 209, 44, 1) 0%,
+            rgba(25, 136, 247, 1) 100%
+          ); */
+        background-image: url(firefox.png),
+          url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png),
+          linear-gradient(
+            225deg,
+            rgb(199, 191, 149) 0%,
+            rgb(122, 186, 250) 100%
+          );
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: bottom right, left, right;
+        background-size: cover;
+        overflow-y: auto;
+      }
+      .header-main {
+        background-color: linear-gradient(
+          225deg,
+          rgb(199, 191, 149) 0%,
+          rgb(122, 186, 250) 100%
+        );
+        box-shadow: 0px 10px 30px 0 rgba(43, 45, 66, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
+      }
+
+      .form-inputs {
+        position: relative;
+      }
+      .form-inputs .form-control {
+        height: 45px;
+      }
+
+      .form-inputs .form-control:focus {
+        box-shadow: none;
+        border: 1px solid #000;
+      }
+
+      .form-inputs i {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+      }
+
+      .shop-bag {
+        background-color: #000;
+        color: #fff;
+        height: 50px;
+        width: 50px;
+        font-size: 25px;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .qty {
+        font-size: 12px;
+      }
+      #navbar-main {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(3px);
+        /* border-radius: 20px; */
+        box-shadow: 0px 10px 30px 0 rgba(43, 45, 66, 0.3);
+        /* border: 1px solid rgba(255, 255, 255, 0.8); */
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
+        z-index: 100;
+      }
+      #dropdown-nav li:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .banner {
+        /* background-image: url("https://cdn.pixabay.com/photo/2022/06/05/23/34/panorama-7245029__340.jpg"); */
+        background-size: fit;
+        background-position: center;
+        height: 150px;
+        width: 100%;
+        /* background: rgba(255, 255, 255, 0.5); */
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(3px);
+        /* border-radius: 20px; */
+        box-shadow: 0px 10px 30px 0 rgba(43, 45, 66, 0.3);
+        /* border: 1px solid rgba(255, 255, 255, 0.8); */
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
+      }
+      .banner h2 {
+        text-align: center;
+        align-items: center;
+        color: black;
+        padding-top: 50px;
+      }
+      .main {
+        border: none;
+        display: grid;
+        grid-gap: 0.2vw;
+        /* grid-row-gap:0.2vw; */
+        grid-template-columns: repeat(5, minmax(150px, 1fr));
+        /* grid-template-rows: repeat(auto-fill, max(350px, 1fr)); */
+        grid-auto-rows: 250px;
+        width: 100%;
+        margin-left: -2%;
+        /* From https://css.glass */
+      }
+      
+
+      .main .links {
+        text-decoration: none;
+        margin: 0;
+      }
+
+      .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        position: relative;
+        transition: 0.5s;
+        /* height: 120%; */
+        /* margin-bottom: 30px; */
+        /* height: 160%; */
+        height: 100%;
+
+        margin-bottom: 0;
+        align-items: center;
+
+        /* background: rgba(124, 124, 124, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3); */
+      }
+      .card h3 {
+        font-size: 16px;
+      }
+
+      .img__description {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(173, 172, 172, 0.5);
+        opacity: 0;
+        padding: 40% 10% 10% 10%;
+        color: black;
+        border-radius: 10px;
+        font: 12px/1.5 sans-serif;
+
+        /* transition effect. not necessary */
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      #grid-item {
+        align-items: center;
+        justify-content: center;
+        margin-left: 20%;
+      }
+      #grid-item:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      #grid-item:hover .img__description {
+        visibility: visible;
+        opacity: 1;
+      }
+      #product-image {
+        width: 50%;
+        height: 100px;
+        object-fit: fit;
+        border-radius: 10px;
+        align-items: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+      }
+      .product_desc {
+        text-align: center;
+        margin-top: 10%;
+        margin-bottom: -25%;
+      }
+      @media screen and (max-width: 768px) {
+        .main {
+          grid-template-columns: repeat(2, minmax(150px, 1fr));
+          margin-left: -10%
+        }
+        .card {
+            width: 100%;
+            margin: auto;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Container wrapper -->
+    <header class="section-header">
+      <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
         <div class="container-fluid">
-          <!-- Toggle button -->
+          <ul class="navbar-nav d-none d-md-flex mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-abc="true">Cash On Delivery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-abc="true">Free Delivery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-abc="true">Cash Backs</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav d-flex align-items-center">
+            <li class="nav-item">
+              <div class="d-flex flex-row">
+                <img
+                  src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg"
+                  class="rounded-circle"
+                  width="30"
+                />
+              </div>
+            </li>
+            <li class="nav-item">
+              <a
+                href="#"
+                class="nav-link d-flex align-items-center"
+                data-abc="true"
+                ><span>Nantano M</span><i class="fa-solid fa-chevrons-down"></i
+              ></a>
+            </li>
+          </ul>
+          <!-- list-inline //  -->
+        </div>
+        <!-- navbar-collapse .// -->
+        <!-- container //  -->
+      </nav>
+      <!-- header-top-light.// -->
+
+      <section class="header-main border-bottom">
+        <div class="container-fluid">
+          <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+            <div class="col-md-2">
+              <img
+                class="d-none d-md-flex"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmcAqUogpXkFCmVY5xUGFpNSw-poK1SX7xA&usqp=CAU"
+                width="100"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="d-flex form-inputs">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Search any product..."
+                />
+                <i class="bx bx-search"></i>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="d-flex d-none d-md-flex flex-row align-items-center">
+                <span class="shop-bag"
+                  ><i class="fa-solid fa-bag-shopping"></i
+                ></span>
+                <div class="d-flex flex-column ms-2">
+                  <span class="qty">1 Product</span>
+                  <span class="fw-bold">$27.90</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+      <nav class="navbar navbar-expand-lg" id="navbar-main">
+        <div class="container-fluid">
+          <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a>
+          <!-- <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
           <button
             class="navbar-toggler"
             type="button"
             data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-mdb-target="#collapseExample"
             aria-expanded="false"
-            aria-label="Toggle navigation"
+            aria-controls="collapseExample"
           >
-            <i class="fas fa-bars"></i>
+            <span class="navbar-toggler-icon"></span>
           </button>
-  
-          <!-- Collapsible wrapper -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Navbar brand -->
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-                height="15"
-                alt="MDB Logo"
-                loading="lazy"
-              />
-            </a>
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="collapse navbar-collapse" id="collapseExample">
+            <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown"> -->
+            <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Spices</a
+                >
               </li>
               <li class="nav-item">
-                <form class="d-flex input-group w-auto">
-                  <input
-                    type="search"
-                    class="form-control rounded"
-                    placeholder="Search"
-                    aria-label="Search"
-                    aria-describedby="search-addon"
-                  />
-                  <span class="input-group-text border-0" id="search-addon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </form>
+                <a class="nav-link" href="#">Food</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Projects</a>
+                <a class="nav-link" href="#">Vegetables</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Drinks
+                </a>
+                <ul
+                  class="dropdown-menu"
+                  aria-labelledby="navbarDropdownMenuLink"
+                  id="dropdown-nav"
+                >
+                  <li><a class="dropdown-item" href="#">Beers</a></li>
+                  <li><a class="dropdown-item" href="#">Wine</a></li>
+                  <li><a class="dropdown-item" href="#">Non Alcoholics</a></li>
+                </ul>
               </li>
             </ul>
-            <!-- Left links -->
           </div>
-          <!-- Collapsible wrapper -->
-  
-          <!-- Right elements -->
-          <div class="d-flex align-items-center">
-            <!-- Icon -->
-            <a class="text-reset me-3" href="#">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-  
-            <!-- Notifications -->
-            <div class="dropdown">
-              <a
-                class="text-reset me-3 dropdown-toggle hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-bell"></i>
-                <span class="badge rounded-pill badge-notification bg-danger"
-                  >1</span
-                >
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <li>
-                  <a class="dropdown-item" href="#">Some news</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Another news</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </div>
-            <!-- Avatar -->
-            <div class="dropdown">
-              <a
-                class="dropdown-toggle d-flex align-items-center hidden-arrow"
-                href="#"
-                id="navbarDropdownMenuAvatar"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  class="rounded-circle"
-                  height="25"
-                  alt="Black and White Portrait of a Man"
-                  loading="lazy"
-                />
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuAvatar"
-              >
-                <li>
-                  <a class="dropdown-item" href="#">My profile</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Settings</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Right elements -->
         </div>
-        <!-- Container wrapper -->
       </nav>
-      <!-- Navbar -->
-      {% block content %}{% endblock %}
+    </header>
+    <div class="banner">
+        <h2>African and Asian Food Store Safari</h2>
+      </div>
+    {% block content %}{% endblock %}
   </body>
 </html>
