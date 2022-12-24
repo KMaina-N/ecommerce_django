@@ -1,1 +1,1 @@
-web gunicorn foodstore.wsgi:application --logfile -
+web gunicorn foodstore.wsgi
