@@ -6,4 +6,4 @@ def home(request):
     context = {}
     product = Product.objects.all()
     context['product'] = product
-    return render(request, 'home.html', context)
+    return render(request, 'test.html', context)
