@@ -52,25 +52,17 @@
             rgba(242, 209, 44, 1) 0%,
             rgba(25, 136, 247, 1) 100%
           ); */
-        /* background-image: url(firefox.png),
-          url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png),
+        background-image: url(firefox.png),
+          /* url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png), */
             linear-gradient(
               225deg,
               rgb(199, 191, 149) 0%,
               rgb(122, 186, 250) 100%
-            ); */
-
-        /* background-repeat: no-repeat, no-repeat, no-repeat;
-        background-position: bottom right, left, right; */
-        background-image: linear-gradient(
-          to top right,
-          rgb(199, 191, 149) 0%,
-          rgb(122, 186, 250) 100%
-        );
-        background-repeat: repeat !important;
-        background-size: 100% !important;
-        /* overflow-y: auto; */
-        height: 50vw;
+            );
+        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: bottom right, left, right;
+        background-size: cover;
+        overflow-y: auto;
       }
 
       #navbar-main {
@@ -265,19 +257,6 @@
           margin: auto;
         }
       }
-      @media screen and (min-width: 780px) {
-        h2 {
-          text-align: center;
-          align-items: center;
-          color: rgb(0, 0, 0);
-          padding-top: 0px;
-        }
-        #cart {
-          display: none;
-          align-items: center;
-          margin-left: 20%;
-        }
-      }
     </style>
   </head>
   <body>
@@ -333,10 +312,10 @@
               <div class="col-md-2">
                 <a href="/">
                   <img
-                    class="d-none d-md-flex"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmcAqUogpXkFCmVY5xUGFpNSw-poK1SX7xA&usqp=CAU"
-                    width="100"
-                  />
+                  class="d-none d-md-flex"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmcAqUogpXkFCmVY5xUGFpNSw-poK1SX7xA&usqp=CAU"
+                  width="100"
+                />
                 </a>
               </div>
               <div class="col-md-8">
@@ -380,23 +359,6 @@
         <nav class="navbar navbar-expand-lg" id="navbar-main">
           <div class="container-fluid">
             <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a>
-            <a href="/basket" style="color: rgb(43, 43, 43)" id="cart" > 
-              <div class="d-flex flex-column ms-2" >
-                <!-- <span class="qty">{{amount}} Product</span> -->
-                <span>
-                  <i class="fa-solid fa-cart-shopping"></i>
-                  <span class="qty"
-                  >{% if amount == '0' %} {{amount}} Product {% else %}
-                  {{amount}} Products {% endif %}
-                </span>
-                <br/>
-                <span class="fw-bold">
-                  {% if price %} €{{price}} {% else %} €0 {% endif %}
-                </span>
-                </span>
-                <!-- <span class="fw-bold">€{{price}}</span> -->
-              </div>
-            </a>
             <!-- <button
             class="navbar-toggler"
             type="button"
@@ -447,11 +409,7 @@
                     aria-labelledby="navbarDropdownMenuLink"
                     id="dropdown-nav"
                   >
-                    <li>
-                      <a class="dropdown-item" href="product_type" name="beers"
-                        >Beers</a
-                      >
-                    </li>
+                    <li><a class="dropdown-item" href="product_type" name="beers">Beers</a></li>
                     <li><a class="dropdown-item" href="#">Wine</a></li>
                     <li>
                       <a class="dropdown-item" href="#">Non Alcoholics</a>

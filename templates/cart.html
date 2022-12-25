@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                height: 50vw;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <div class="container">
+            <div class="product">
+                <table class="table table-bordered">
+                    <thead class="bg-light">
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img
+                                src="{{product.image.url}}"
+                                alt=""
+                                style="width: 55px; height: 55px"
+                                
+                                />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">{{product.title}}</p>
+                                    <p class="text-muted mb-0">{{product.description}}</p>
+                                  </div>
+                          </div>
+                        </td>
+                        <td>
+                            <div d-flex align-items-center>
+                                <p class="fw-normal mb-1">€ {{product.price}}</p>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge badge-success rounded-pill d-inline">{{product.amount}}</span>
+                        </td>
+                        <td>{{product.total}}</td>
+                        <td>
+                          <button type="button" class="btn btn-link btn-sm btn-rounded">
+                            Edit
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </div>
+    </body>
+</html>
+{% endblock %}

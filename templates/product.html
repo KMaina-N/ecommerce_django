@@ -92,6 +92,7 @@
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span> Customer reviews
             <p><b>Price: </b> {{product.price}}</p>
+            <p><b>ID: </b> {{product.id}}</p>
             <p><b>Availability: </b> In Stock</p>
             <p><b>Description: </b> {{product.description}}</p>
           </div>
@@ -100,10 +101,16 @@
           <div class="col">
             <div class="counter">
               <span class="down" onClick="decreaseCount(event, this)">-</span>
-              <input type="text" value="1" />
+              <input type="text" value="1" id="values" />
               <span class="up" onClick="increaseCount(event, this)">+</span>
               <div class="add">
-                <a href="#" class="btn btn-primary">Add to Cart</a>
+                <!-- <a href="/add_to_cart/{{product.id}}" class="btn btn-primary">Add to Cart</a> -->
+                <form action="/add_to_cart/{{product.id}}"> {% csrf_token %}
+                  <input type="hidden" name="product_id" value="{{product.id}}" />
+                  <!-- <input type="hidden" name="quantity" value="1" /> -->
+                  <input type="hidden" name="amount" id="amount" value="1"/>
+                  <button type="submit" class="btn btn-primary">Add to Carts</button>
+                </form>
             </div>
             </div>
             
@@ -112,12 +119,17 @@
       </div>
     </div>
     <script type="text/javascript">
+      
+      
       function increaseCount(a, b) {
         var input = b.previousElementSibling;
         var value = parseInt(input.value, 10);
         value = isNaN(value) ? 0 : value;
         value++;
         input.value = value;
+        var amount = document.getElementById("amount");
+        amount.value = value;
+        
       }
       function decreaseCount(a, b) {
         var input = b.nextElementSibling;
@@ -126,6 +138,8 @@
           value = isNaN(value) ? 0 : value;
           value--;
           input.value = value;
+          var amount = document.getElementById("amount");
+          amount.value = value;
         }
       }
     </script>
