@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <html>
-    
   <head>
     <style>
       body {
@@ -37,10 +36,11 @@
         line-height: 30px;
         font-size: 20px;
         text-align: center;
-        background: #0052cc;
+        background: #000000;
         color: #fff;
         appearance: none;
         outline: 0;
+        border-radius: 5px;
       }
       .counter span {
         display: block;
@@ -58,10 +58,8 @@
       }
 
       .add a {
-        
         width: 110%;
-        background-color:#0052cc ;
-       
+        background-color: #0052cc;
       }
     </style>
   </head>
@@ -85,7 +83,7 @@
               blunt to pointed. Besides the orange-coloured roots, white-,
               yellow-, and purple-fleshed varieties are known.
             </p> -->
-            
+
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -105,22 +103,24 @@
               <span class="up" onClick="increaseCount(event, this)">+</span>
               <div class="add">
                 <!-- <a href="/add_to_cart/{{product.id}}" class="btn btn-primary">Add to Cart</a> -->
-                <form action="/add_to_cart/{{product.id}}"> {% csrf_token %}
-                  <input type="hidden" name="product_id" value="{{product.id}}" />
+                <form action="/add_to_cart/{{product.id}}">
+                  {% csrf_token %}
+                  <input
+                    type="hidden"
+                    name="product_id"
+                    value="{{product.id}}"
+                  />
                   <!-- <input type="hidden" name="quantity" value="1" /> -->
-                  <input type="hidden" name="amount" id="amount" value="1"/>
-                  <button type="submit" class="btn btn-primary">Add to Carts</button>
+                  <input type="hidden" name="amount" id="amount" value="1" />
+                  <button type="submit" class="add-btn">Add to Cart</button>
                 </form>
+              </div>
             </div>
-            </div>
-            
           </div>
         </div>
       </div>
     </div>
     <script type="text/javascript">
-      
-      
       function increaseCount(a, b) {
         var input = b.previousElementSibling;
         var value = parseInt(input.value, 10);
@@ -129,7 +129,6 @@
         input.value = value;
         var amount = document.getElementById("amount");
         amount.value = value;
-        
       }
       function decreaseCount(a, b) {
         var input = b.nextElementSibling;

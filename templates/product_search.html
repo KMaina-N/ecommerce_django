@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+/* styles.css */
+
+.product-grid {
+  display: grid;
+  grid-gap: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.product img {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+.product h2 {
+  margin-top: 0;
+}
+
+.product span {
+  font-weight: bold;
+}
+
+.product button {
+  margin-top: auto;
+}
+
+
+</style>
+<div class="container">
+<div class="product-grid">
+    {% for product in products %}
+    <div class="product">
+        <a href="product_detail/{{product.id}}" class="links">
+        <img class="product-image-search" src="{{ product.image.url }}" alt="{{ product.name }}">
+        </a>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.title }}</p>
+        <span> € {{ product.price }}</span>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    {% empty %}
+      <p>No products found.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

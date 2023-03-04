@@ -11,9 +11,15 @@ def add_variable_to_context(request):
     price = re.findall(r'[0-9]+', str(price))
     price = '[]'.join(price)
 
+    search = request.GET.get('q')
+    if search == None:
+        search = ''
+
+
 
     
     return {
         'amount': amount,
         'price': price,
+        'search': search,
     }

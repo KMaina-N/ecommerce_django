@@ -5,79 +5,61 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      /* #grid-wrapper {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 250px;
-        grid-gap: 1rem;
-        grid-auto-flow: row;
-      } */
-      /* #grid-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        } */
-      .main {
-        border: none;
-        display: grid;
-        grid-gap: 0.5vw;
-        grid-template-columns: repeat(3, minmax(150px, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-      }
 
-      .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        position: relative;
-        transition: 0.5s;
-        height: 160%;
-        margin-bottom: 0;
-      }
+     /* styles.css */
 
-      .img__description {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(173, 172, 172, 0.5);
-        opacity: 0;
-        padding: 40% 10% 10% 10%;
-        color: black;
-        border-radius: 10px;
-        font: 12px/1.5 sans-serif;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
 
-        /* transition effect. not necessary */
-        transition: opacity 0.2s, visibility 0.2s;
-      }
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
 
-      #grid-item:hover .img__description {
-        visibility: visible;
-        opacity: 1;
-      }
-      #product-image {
-        width: 50%;
-        height: 100px;
-        object-fit: fit;
-        border-radius: 10px;
-        align-items: center;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-      }
-      .product_desc {
-        text-align: center;
-        margin-top: 10%;
-        margin-bottom: -25%;
-      }
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .product {
+    padding: 0.5rem;
+  }
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product h2 {
+  margin-top: 0;
+}
+
+.product span {
+  font-weight: bold;
+}
+
+.product button {
+  margin-top: auto;
+}
+
+
+
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="main">
+      <!-- <div class="main">
         {% for product in product %}
         
         <div class="card" id="grid-item">
@@ -98,13 +80,23 @@
             <p>{{ product.price }}</p>
             <a href="#">View</a>
           </div>
-          <!-- <div class="img__description">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }}</p>
-            <a href="#">View</a>
-          </div> -->
+        
         </div>
+        {% endfor %}
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="product-grid">
+        {% for product in product %}
+          <div class="product">
+            <a href="product_detail/{{product.id}}" class="links">
+            <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.title }}</p>
+            <span> € {{ product.price }}</span>
+            <button class="btn add-btn">Add to Cart</button>
+          </div>
         {% endfor %}
       </div>
     </div>

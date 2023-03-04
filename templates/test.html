@@ -1,60 +1,55 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <!DOCTYPE html>
 <html>
   <head> </head>
   <body>
-    
     <div class="products">
       <div class="main">
-        
         {% for product in product %}
-<a href="product_detail/{{product.id}}" class="links">
-        <div class="card" id="grid-item">
-          {% if product.image %}
-          <img
-            id="product-image"
-            src="{{ product.image.url }}"
-            alt="product image"
-          />
-          {% else %}
-          <img
-            id="product-image"
-            src="https://via.placeholder.com/150"
-            alt="product image"
-          />
-          {% endif %}
-          <div class="product_desc">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price }}</p>
-            <!-- <p>
+        <a href="product_detail/{{product.id}}" class="links">
+          <div class="card" id="grid-item">
+            {% if product.image %}
+            <img
+              id="product-image"
+              src="{{ product.image.url }}"
+              alt="product image"
+            />
+            {% else %}
+            <img
+              id="product-image"
+              src="https://via.placeholder.com/150"
+              alt="product image"
+            />
+            {% endif %}
+            <div class="product_desc">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price }}</p>
+              <!-- <p>
                 <a href="#">View</a>
             </p> -->
-          </div>
-          <!-- <div class="img__description">
+            </div>
+            <!-- <div class="img__description">
             <h3>{{ product.name }}</h3>
             <p>{{ product.description }}</p>
             <p>{{ product.price }}</p>
             <a href="#">View</a>
           </div> -->
-        </div>
-    </a>
+          </div>
+        </a>
         {% endfor %}
       </div>
     </div>
     <script>
-        let grid = document.querySelector(".main");
-        onclick = function()  {
+      let grid = document.querySelector(".main");
+      onclick = function () {
         //   var id = `
         //   {% for product in product %}
         //   {{ product.id }};
         //   {% endfor %}`;
         var id = document.getElementById("p_id").innerHTML;
-          
-            console.log(id);
-        };
-        
+
+        console.log(id);
+      };
     </script>
   </body>
 </html>

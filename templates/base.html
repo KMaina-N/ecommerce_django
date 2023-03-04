@@ -45,31 +45,6 @@
       body {
         font-family: "Quicksand", sans-serif;
         background-color: rgb(255, 255, 255);
-        /* background-image: url(firefox.png),
-          url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png),
-          linear-gradient(
-            225deg,
-            rgba(242, 209, 44, 1) 0%,
-            rgba(25, 136, 247, 1) 100%
-          ); */
-        /* background-image: url(firefox.png),
-          url(https://www.freepnglogos.com/uploads/bubbles/bubble-png-transparent-bubble-images-pluspng-21.png),
-            linear-gradient(
-              225deg,
-              rgb(199, 191, 149) 0%,
-              rgb(122, 186, 250) 100%
-            ); */
-
-        /* background-repeat: no-repeat, no-repeat, no-repeat;
-        background-position: bottom right, left, right; */
-        background-image: linear-gradient(
-          to top right,
-          rgb(199, 191, 149) 0%,
-          rgb(122, 186, 250) 100%
-        );
-        background-repeat: repeat !important;
-        background-size: 100% !important;
-        /* overflow-y: auto; */
         height: 50vw;
       }
 
@@ -81,11 +56,6 @@
       }
 
       .header-main {
-        background-color: linear-gradient(
-          225deg,
-          rgb(199, 191, 149) 0%,
-          rgb(122, 186, 250) 100%
-        );
         box-shadow: 0px 10px 30px 0 rgba(43, 45, 66, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.8);
         border-top: 1px solid transparent;
@@ -129,6 +99,13 @@
       .qty:hover {
         color: #fff;
       }
+
+      form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1200px !important;
+      }
       #navbar-main {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(3px);
@@ -164,84 +141,24 @@
         color: black;
         padding-top: 50px;
       }
-      .main {
-        border: none;
-        display: grid;
-        grid-gap: 0.2vw;
-        /* grid-row-gap:0.2vw; */
-        grid-template-columns: repeat(5, minmax(150px, 1fr));
-        /* grid-template-rows: repeat(auto-fill, max(350px, 1fr)); */
-        grid-auto-rows: 250px;
-        width: 100%;
-        margin-left: -2%;
-        /* From https://css.glass */
-      }
-
-      .main .links {
-        text-decoration: none;
-        margin: 0;
-      }
-
-      .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        position: relative;
-        transition: 0.5s;
-        /* height: 120%; */
-        /* margin-bottom: 30px; */
-        /* height: 160%; */
-        height: 100%;
-
-        margin-bottom: 0;
-        align-items: center;
-
-        /* background: rgba(124, 124, 124, 0.2);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3); */
-      }
       .card h3 {
         font-size: 16px;
       }
 
-      .img__description {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(173, 172, 172, 0.5);
-        opacity: 0;
-        padding: 40% 10% 10% 10%;
-        color: black;
-        border-radius: 10px;
-        font: 12px/1.5 sans-serif;
-
-        /* transition effect. not necessary */
-        transition: opacity 0.2s, visibility 0.2s;
-      }
-      #grid-item {
-        align-items: center;
-        justify-content: center;
-        margin-left: 20%;
-      }
-      #grid-item:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-      }
-
-      #grid-item:hover .img__description {
-        visibility: visible;
-        opacity: 1;
-      }
-      #product-image {
+      .product-image {
         width: 50%;
-        height: 100px;
+        height: 150px !important;
+        object-fit: fit;
+        border-radius: 10px;
+        align-items: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5px;
+      }
+      .product-image-search {
+        width: 10%;
+        height: 150px !important;
         object-fit: fit;
         border-radius: 10px;
         align-items: center;
@@ -255,6 +172,22 @@
         margin-top: 10%;
         margin-bottom: -25%;
       }
+      .add-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border: none !important;
+  font-weight: 800 !important;
+}
+
       @media screen and (max-width: 768px) {
         .main {
           grid-template-columns: repeat(2, minmax(150px, 1fr));
@@ -266,6 +199,9 @@
         }
       }
       @media screen and (min-width: 780px) {
+        .header-main {
+          top: 10% !important;
+        }
         h2 {
           text-align: center;
           align-items: center;
@@ -283,50 +219,8 @@
   <body>
     <div class="navbanner">
       <header class="section-header">
-        <!-- <nav class="navbar navbar-dark navbar-expand p-0 bg-dark">
-          <div class="container-fluid">
-            <ul class="navbar-nav d-none d-md-flex mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-abc="true"
-                  >Cash On Delivery</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-abc="true">Free Delivery</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-abc="true">Cash Backs</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav d-flex align-items-center">
-              <li class="nav-item">
-                <div class="d-flex flex-row">
-                  <img
-                    src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg"
-                    class="rounded-circle"
-                    width="30"
-                  />
-                </div>
-              </li>
-              <li class="nav-item">
-                <a
-                  href="#"
-                  class="nav-link d-flex align-items-center"
-                  data-abc="true"
-                  ><span>{{request.user}}</span
-                  ><i class="fa-solid fa-chevrons-down"></i
-                ></a>
-              </li>
-            </ul>
-
-          </div>
-
-
-        </nav> -->
-        <!-- header-top-light.// -->
         <br />
         <br />
-
         <section class="header-main border-bottom">
           <div class="container-fluid">
             <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
@@ -341,12 +235,19 @@
               </div>
               <div class="col-md-8">
                 <div class="d-flex form-inputs">
-                  <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Search any product..."
-                  />
-                  <i class="bx bx-search"></i>
+                  <form action="product_search" method="get" id="searchForm">
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder="Search any product..."
+                      name="q"
+                      id="search"
+                      value="{{search}}"
+                    />
+                    <!-- <button class="btn btn-primary" type="submit">
+                      Search</button> -->
+                    <!-- <i class="bx bx-search"></i> -->
+                  </form>
                 </div>
               </div>
 
@@ -377,22 +278,22 @@
         </section>
 
         <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
-        <nav class="navbar navbar-expand-lg" id="navbar-main">
+        <nav class="navbar navbar-expand-lg bg-white" id="navbar-main">
           <div class="container-fluid">
             <a class="navbar-brand d-md-none d-md-flex" href="#">Categories</a>
-            <a href="/basket" style="color: rgb(43, 43, 43)" id="cart" > 
-              <div class="d-flex flex-column ms-2" >
+            <a href="/basket" style="color: rgb(43, 43, 43)" id="cart">
+              <div class="d-flex flex-column ms-2">
                 <!-- <span class="qty">{{amount}} Product</span> -->
                 <span>
                   <i class="fa-solid fa-cart-shopping"></i>
                   <span class="qty"
-                  >{% if amount == '0' %} {{amount}} Product {% else %}
-                  {{amount}} Products {% endif %}
-                </span>
-                <br/>
-                <span class="fw-bold">
-                  {% if price %} €{{price}} {% else %} €0 {% endif %}
-                </span>
+                    >{% if amount == '0' %} {{amount}} Product {% else %}
+                    {{amount}} Products {% endif %}
+                  </span>
+                  <br />
+                  <span class="fw-bold">
+                    {% if price %} €{{price}} {% else %} €0 {% endif %}
+                  </span>
                 </span>
                 <!-- <span class="fw-bold">€{{price}}</span> -->
               </div>
@@ -467,6 +368,18 @@
         <h2>African and Asian Food Store Safari</h2>
       </div>
     </div>
+    <script>
+      var search = document.getElementById("search");
+      search.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("searchForm").submit();
+        }
+      });
+      document.getElementById("search").addEventListener("click", function () {
+        this.value = ""; // clear the input value
+      });
+    </script>
     {% block content %}{% endblock %}
   </body>
 </html>

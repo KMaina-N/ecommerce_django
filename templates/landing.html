@@ -1,0 +1,364 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<style>
+  /* .image-background {
+    background-image: url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGFmcmljYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+} */
+  .image-background {
+    background-color: rgb(0, 0, 0);
+    background-size: 20% 70%;
+    background-position: left bottom, right top;
+    background-repeat: no-repeat;
+    background-image: url("{% static "images/oie_transparent.png" %}"),
+      url("{% static "images/oie_transparent.png" %}");
+  }
+  .image-background__content {
+    background-color: transparent;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 25%;
+  }
+  .image-background__title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .image-background__subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c9c9c9;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .image-background__logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .info-item {
+    display: flex;
+  }
+
+  .info-item .icon i{
+    padding-right: 5px;
+  }
+  .info-item i{
+    color: rgb(81, 255, 0);
+  }
+  .info-item .down-content p{
+    color: white;
+  }
+  .info {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 5%;
+  }
+  .services {
+    background-color: #f5f5f5;
+  }
+
+  .services_item {
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .services__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #414141;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+
+  .icon {
+    display: flex;
+  }
+  .icon i {
+    margin-top: 8px;
+    padding-right: 5%;
+  }
+
+  .icon h4 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .service-item .down-content {
+    color: rgb(0, 0, 0);
+  }
+  .more-items {
+    background-repeat: no-repeat;
+    background-size: 250px 250px;
+    background-position: left 20% top;
+    margin-bottom: 20%;
+    min-height: 30vh !important;
+    background-color: #000000;
+    background-image: url("{% static "images/juice.png" %}");
+  }
+
+  .more-items-disp {
+    align-items: right;
+    justify-content: right;
+    margin-left: 40%;
+  }
+
+  .more-items-title h1 {
+    font-size: 3rem;
+    font-weight: 1000 !important;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+    inline-size: 50% !important;
+    padding-top: 20px;
+  }
+
+  .more-items-desc p {
+    color: #c0c0c0;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+
+  .more-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .image-background {
+      background-size: 50% 50%;
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      background-image: none;
+    }
+    .image-background__content {
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+    }
+    .rw-service {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .col-md {
+      margin-bottom: 1rem;
+    }
+    .more-items {
+      max-width: 100%;
+      min-height: 60vh;
+      background-position: left -20% top !important;
+    }
+
+    .more-items-title h1 {
+      font-size: 1.5rem;
+      font-weight: 1000 !important;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      margin-top: 20px;
+      inline-size: 100% !important;
+    }
+  }
+</style>
+<div class="containers">
+  <div class="image-background">
+    <div class="image-background__content">
+      <h1 class="image-background__title">Welcome to</h1>
+      <h2 class="image-background__subtitle">The African-Asian Food Market</h2>
+      <div class="row info">
+        <div class="col-md-4">
+          <div class="info-item">
+            <div class="icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="down-content">
+              <h4>Find Us</h4>
+              <p>Address: 1234 Main Street, Zagreb, Croatia</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-item">
+            <div class="icon">
+              <i class="fa fa-clock"></i>
+            </div>
+            <div class="down-content">
+              <h4>Opening Hours</h4>
+              <p>Monday - Friday: 9am - 5pm</p>
+              <p>Saturday: 10am - 4pm</p>
+              <p>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-item">
+            <div class="icon">
+              <i class="fa fa-phone"></i>
+            </div>
+            <div class="down-content">
+              <h4>Contact Us</h4>
+              <p>Phone: 123-456-7890</p>
+              <p>Email: example@email.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-sm">
+  <h1 class="services__title">Our Services</h1>
+  <div class="row rw-service">
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-shopping-cart"></i>
+          <h4>Shop</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-cutlery"></i>
+          <h4>Restaurant</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-truck"></i>
+          <h4>Delivery</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row rw-service">
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-glass"></i>
+          <h4>Bar</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-coffee"></i>
+          <h4>Coffee</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="service-item">
+        <div class="icon">
+          <i class="fa fa-beer"></i>
+          <h4>Beer</h4>
+        </div>
+        <div class="down-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
+            voluptas, quibusdam, quod, autem, dolorum, quidem, voluptates
+            voluptatibus, nemo, quos, cumque, tempora, officiis
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="more-items">
+  <div class="more-items-disp">
+    <div class="more-items-title">
+      <h1>Fresh products from Africa and Asia</h1>
+    </div>
+    <div class="more-items-desc">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas,
+        quibusdam, quod, autem, dolorum, quidem, voluptates voluptatibus, nemo,
+        quos, cumque, tempora, officiis
+      </p>
+    </div>
+    <div class="more-items-btn">
+      <a href="products" class="more-btn">Browse Catalogue..</a>
+    </div>
+  </div>
+</div>
+<div class="categories">
+    <div class="row">
+        <div class="col-md-4">
+            
+        </div>
+
+    </div>
+</div>
+{% endblock %}
