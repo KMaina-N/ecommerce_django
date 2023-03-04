@@ -1,5 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -228,14 +229,15 @@
                 <a href="/">
                   <img
                     class="d-none d-md-flex"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEmcAqUogpXkFCmVY5xUGFpNSw-poK1SX7xA&usqp=CAU"
+                    src="{% static 'images/logo-black.svg' %}"
                     width="100"
+                    alt="africanandasianfoodstoresafari"
                   />
                 </a>
               </div>
               <div class="col-md-8">
                 <div class="d-flex form-inputs">
-                  <form action="product_search" method="get" id="searchForm">
+                  <form action="/product_search" method="get" id="searchForm">
                     <input
                       class="form-control"
                       type="text"
