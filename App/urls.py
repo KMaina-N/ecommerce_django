@@ -15,7 +15,5 @@ urlpatterns = [
     path('add_to_cart/<int:id>', views.add_to_cart, name='add_to_cart'),
     path('basket', views.basket, name='basket'),
     path('destroy/<int:id>', views.destroy, name='destroy'),
-] 
-urlpatterns += staticfiles_urlpatterns()
-# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
